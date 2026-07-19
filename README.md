@@ -1,4 +1,4 @@
-# 🚀 Vireon
+#  Vireon
 
 <div align="center">
 
@@ -12,24 +12,24 @@ Transform PDFs, documents, and educational resources into professionally designe
 
 ---
 
-# 📖 Overview
+#  Overview
 
 Vireon is an AI-native educational platform that converts educational content into structured and interactive learning experiences.
 
 Instead of manually creating courses, users simply upload a document and Vireon automatically:
 
-- 📄 Understands the document
-- 📚 Builds a curriculum
-- 📝 Generates lessons
-- 🎬 Creates storyboards
-- 🎨 Produces educational visuals
-- 🎥 Generates lesson videos
-- 🧩 Creates quizzes and flashcards
-- 📦 Packages everything into a complete course
+-  Understands the document
+-  Builds a curriculum
+-  Generates lessons
+-  Creates storyboards
+-  Produces educational visuals
+-  Generates lesson videos
+-  Creates quizzes and flashcards
+-  Packages everything into a complete course
 
 ---
 
-# ✨ Current Features
+#  Current Features
 
 - User Authentication
 - Project Dashboard
@@ -48,7 +48,7 @@ Instead of manually creating courses, users simply upload a document and Vireon 
 
 ---
 
-# 🛠 Tech Stack
+#  Tech Stack
 
 ## Frontend
 
@@ -95,36 +95,7 @@ Instead of manually creating courses, users simply upload a document and Vireon 
 
 ---
 
-# 📂 Project Structure
-
-```
-vireon/
-
-frontend/
-backend/
-
-docs/
-
-renderer/
-
-storyboard/
-
-agents/
-
-video/
-
-storage/
-
-database/
-
-assets/
-
-tests/
-```
-
----
-
-# 💻 Prerequisites
+# Prerequisites
 
 Install the following software before running the project.
 
@@ -313,7 +284,7 @@ http://localhost:8000/docs
 
 ---
 
-# 🎨 Frontend Setup
+#  Frontend Setup
 
 Navigate
 
@@ -367,7 +338,7 @@ alembic upgrade head
 
 ---
 
-# ▶ Running the Project
+# Running the Project
 
 ## Terminal 1
 
@@ -411,7 +382,7 @@ http://localhost:5173
 
 ---
 
-# 🚀 Workflow
+# Workflow
 
 ```
 Login
@@ -451,7 +422,7 @@ Download
 
 ---
 
-# 🧠 AI Pipeline
+# AI Pipeline
 
 ```
 Upload
@@ -495,7 +466,7 @@ Course Package
 
 ---
 
-# 📦 Build
+# Build
 
 Frontend
 
@@ -511,7 +482,7 @@ python -m build
 
 ---
 
-# 🧪 Testing
+# Testing
 
 Frontend
 
@@ -527,7 +498,7 @@ pytest
 
 ---
 
-# 📝 Development Guidelines
+# Development Guidelines
 
 - Use meaningful commit messages.
 - Follow PEP8 for Python.
@@ -538,9 +509,9 @@ pytest
 
 ---
 
-# 🛣 Roadmap
+# Roadmap
 
-## ✅ Phase 5
+## Phase 5
 
 - Educational Rendering Engine
 - AI Course Generation
@@ -548,7 +519,7 @@ pytest
 - Storyboard Engine
 - Download Center
 
-## 🚧 Phase 6
+##  Phase 6
 
 - Premium UI/UX
 - AI Mission Control
@@ -560,7 +531,7 @@ pytest
 - Animations
 - Design System
 
-## 🔮 Future
+##  Future
 
 - AI Learning Companion
 - Adaptive Learning
@@ -571,23 +542,13 @@ pytest
 
 ---
 
-# 🤝 Contributing
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Push the branch.
-5. Open a Pull Request.
-
----
-
 # 📄 License
 
 This project is released under the MIT License.
 
 ---
 
-# ❤️ Built With
+#  Built With
 
 - FastAPI
 - React
