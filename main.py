@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import asyncio
 from contextlib import asynccontextmanager
@@ -149,6 +150,14 @@ async def lifespan(app: FastAPI):
     await orchestrator.stop()
 
 app = FastAPI(title="Vireon Learning OS API", lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # For MVP, allow all
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(router.api_router, prefix="/api")
 

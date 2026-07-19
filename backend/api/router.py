@@ -1,9 +1,11 @@
 from fastapi import APIRouter, UploadFile, File, BackgroundTasks, Depends, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from sqlalchemy.orm import Session
 import os
 import uuid
 import shutil
+import asyncio
+import json
 
 from backend.db.database import get_db
 from backend.db import crud
@@ -64,3 +66,49 @@ async def get_video(filename: str):
     if not os.path.exists(video_path):
         raise HTTPException(status_code=404, detail="Video not found")
     return FileResponse(video_path, media_type="video/mp4")
+
+@api_router.get("/stream/{course_id}")
+async def stream_generation_progress(course_id: str):
+    """
+    SSE endpoint to stream generation progress to the frontend.
+    """
+    if not orchestrator:
+        raise HTTPException(status_code=500, detail="Orchestrator not configured")
+
+    async def event_generator():
+        queue = asyncio.Queue()
+
+        async def handler(event):
+            # Only send events related to this course
+            if event.payload.get("course_id") == course_id:
+                await queue.put(event)
+
+        events_to_subscribe = [
+            "document_processed",
+            "curriculum_generated",
+            "lesson_generated",
+            "assessment_generated",
+            "storyboard_generated",
+            "video_generated",
+            "agent_failed"
+        ]
+
+        for ev in events_to_subscribe:
+            orchestrator.event_bus.subscribe(ev, handler)
+
+        try:
+            while True:
+                event = await queue.get()
+                # Yield SSE format
+                data = json.dumps({
+                    "event_type": event.event_type,
+                    "payload": event.payload
+                })
+                yield f"data: {data}\n\n"
+        except asyncio.CancelledError:
+            pass
+        finally:
+            for ev in events_to_subscribe:
+                orchestrator.event_bus.unsubscribe(ev, handler)
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")

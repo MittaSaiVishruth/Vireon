@@ -19,6 +19,10 @@ class InMemoryEventBus(BaseEventBus):
             self._subscribers[event_type] = []
         self._subscribers[event_type].append(handler)
 
+    def unsubscribe(self, event_type: str, handler: Callable) -> None:
+        if event_type in self._subscribers and handler in self._subscribers[event_type]:
+            self._subscribers[event_type].remove(handler)
+
 class AsyncJobQueue(BaseJobQueue):
     """AsyncIO queue implementation for local job execution."""
     def __init__(self):
