@@ -210,7 +210,7 @@ Recommended Extensions
 
 ---
 
-# ⚙ Backend Setup
+# Backend Setup
 
 Navigate
 
@@ -248,20 +248,6 @@ Copy Environment File
 
 ```bash
 cp .env.example .env
-```
-
-Configure
-
-```text
-DATABASE_URL=
-
-OLLAMA_BASE_URL=
-
-MODEL_NAME=llama3
-
-SECRET_KEY=
-
-LOG_LEVEL=
 ```
 
 Run
@@ -324,7 +310,7 @@ http://localhost:5173
 
 ---
 
-# 🗄 Database
+# Database
 
 Development
 
@@ -542,7 +528,7 @@ pytest
 
 ---
 
-# 📄 License
+#  License
 
 This project is released under the MIT License.
 
